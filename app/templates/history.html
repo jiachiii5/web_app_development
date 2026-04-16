@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row pt-4">
+    <div class="col-12 text-center mb-5">
+        <h2 style="color: var(--primary-color);">過往神明指引紀錄</h2>
+        <p class="text-muted">溫故知新，回首你的心靈歷程</p>
+    </div>
+    
+    {% if histories %}
+        {% for history in histories %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="glass-panel h-100">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge" style="background: rgba(234, 179, 8, 0.3); color: #FEF08A; border: 1px solid #FEF08A;">第 {{ history.poem_no }} 籤</span>
+                    <small class="text-muted text-light">{{ history.created_at[:10] }}</small>
+                </div>
+                <h4 class="mb-3 poem-title" style="color: white;">{{ history.title }}</h4>
+                <p class="poem-content fs-6 mb-2" style="opacity: 0.8;">{{ history.content }}</p>
+                <p class="text-warning small text-truncate">{{ history.explanation }}</p>
+                <!-- 由於我們在列表已經展開大部分資訊，可以直接閱讀 -->
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="col-12 text-center py-5">
+            <h4 class="text-muted">尚無求籤紀錄。</h4>
+            <a href="{{ url_for('main.index') }}" class="btn btn-mystic mt-3">前往求籤</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

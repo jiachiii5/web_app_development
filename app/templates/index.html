@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row min-vh-100 align-items-center justify-content-center text-center">
+    <div class="col-md-8 mx-auto">
+        <div class="glass-panel p-5">
+            <h1 class="mb-4" style="color: var(--primary-color); font-size: 3rem;">隨心所欲，求籤指引</h1>
+            <p class="lead mb-5">在迷惘與抉擇的十字路口，請沉澱心靈，默念你的問題，從神明的籤筒中汲取智慧。</p>
+            <form action="{{ url_for('main.fortune_draw') }}" method="POST">
+                <button type="submit" class="btn btn-mystic btn-lg px-5 py-3 fs-4">開始首抽</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row min-vh-100 justify-content-center pt-5">
+    <div class="col-md-6 col-lg-5">
+        <div class="glass-panel text-center">
+            <h5 class="text-muted mb-2">第 {{ poem.poem_no }} 籤</h5>
+            <h2 class="mb-4 poem-title" style="color: var(--primary-color); font-size: 2.5rem;">{{ poem.title }}</h2>
+            
+            <div class="poem-content fs-4 mb-5 mx-auto" style="line-height: 2.5; max-width: 80%; text-align: justify; text-align-last: center;">
+                {{ poem.content | replace('\n', '<br>') | safe }}
+            </div>
+            
+            <div class="text-start p-4 rounded text-light" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1);">
+                <h5 style="color: var(--primary-color);">【仙機指示】</h5>
+                <p class="mb-0" style="line-height: 1.8;">{{ poem.explanation | replace('\n', '<br>') | safe }}</p>
+            </div>
+            
+            <div class="mt-5 d-flex justify-content-around">
+                <form action="{{ url_for('main.fortune_save') }}" method="POST">
+                    <input type="hidden" name="poem_id" value="{{ poem.id }}">
+                    <button type="submit" class="btn btn-mystic">收納於紀錄</button>
+                </form>
+                <a href="{{ url_for('main.index') }}" class="btn btn-outline-light">重新求籤</a>
+                <a href="#" class="btn btn-primary" onclick="alert('社群分享功能準備中，敬請期待！'); return false;">分享結果</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

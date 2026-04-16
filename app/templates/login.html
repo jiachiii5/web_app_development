@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row min-vh-100 align-items-center justify-content-center">
+    <div class="col-md-5">
+        <div class="glass-panel">
+            <h2 class="text-center mb-4" style="color: var(--primary-color);">信眾登入</h2>
+            <form action="{{ url_for('auth.login') }}" method="POST" class="mb-4">
+                <div class="mb-3">
+                    <label class="form-label">信徒名稱 (帳號)</label>
+                    <input type="text" name="username" class="form-control" required placeholder="請輸入帳號">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">密碼</label>
+                    <input type="password" name="password" class="form-control" required placeholder="請輸入密碼">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-mystic">登入</button>
+                </div>
+            </form>
+
+            <hr style="border-color: rgba(255,255,255,0.2);">
+
+            <h4 class="text-center mt-4 mb-3" style="color: var(--primary-color);">首次結緣 (註冊)</h4>
+            <form action="{{ url_for('auth.register') }}" method="POST">
+                <div class="mb-3">
+                    <label class="form-label">信徒名稱 (帳號)</label>
+                    <input type="text" name="username" class="form-control" required placeholder="您希望如何被稱呼？">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">結緣信箱 (選填)</label>
+                    <input type="email" name="email" class="form-control" placeholder="example@mail.com">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">設定密碼</label>
+                    <input type="password" name="password" class="form-control" required placeholder="至少 6 個字元">
+                </div>
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-outline-light">結成善緣並註冊</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

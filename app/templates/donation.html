@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row min-vh-100 justify-content-center align-items-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="glass-panel">
+            <h2 class="text-center mb-4" style="color: var(--primary-color);">誠心結緣 ‧ 線上添香油錢</h2>
+            <p class="text-center mb-5 text-light opacity-75">您的支持是本系統持續運作的動力。心誠則靈，多少皆為善緣。</p>
+            
+            <form action="{{ url_for('donation.submit') }}" method="POST">
+                <div class="mb-4">
+                    <label class="form-label text-warning">結緣金額 (小計：台幣)</label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-text bg-dark text-warning border-secondary">$</span>
+                        <input type="number" name="amount" class="form-control" required min="10" placeholder="最低緣金10元" value="100">
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label class="form-label text-warning">祈福或還願短語 (選填)</label>
+                    <textarea name="message" class="form-control" rows="3" placeholder="神明庇佑，事事順心..."></textarea>
+                </div>
+                
+                <div class="d-grid mt-5">
+                    <button type="submit" class="btn btn-mystic btn-lg">確認奉獻</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

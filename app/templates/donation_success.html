@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row min-vh-100 justify-content-center align-items-center text-center">
+    <div class="col-md-6">
+        <div class="glass-panel py-5">
+            <div class="display-1 mb-4" style="text-shadow: 0 0 30px var(--primary-color);">🙏</div>
+            <h2 style="color: var(--primary-color);" class="mb-4">結緣已圓滿完成</h2>
+            <p class="lead mb-5 text-light">感激您的慷慨與支持，願這份善緣化為庇佑，陪伴你迎接生活中的每個光芒。</p>
+            
+            <a href="{{ url_for('main.index') }}" class="btn btn-outline-light px-4">返回主頁</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

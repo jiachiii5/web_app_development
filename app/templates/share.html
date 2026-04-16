@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="我在《靈籤》抽到了: 第{{ poem.poem_no }}籤 - {{ poem.title }}" />
+    <meta property="og:description" content="{{ poem.content | truncate(50) }}" />
+    <meta property="og:image" content="{{ url_for('static', filename='images/share-preview.png', _external=True) }}" />
+    <title>分享結果</title>
+</head>
+<body>
+    <script>
+        // 抓取完 OG Tag 後，用戶若點擊進來將轉導回該籤詩
+        window.location.href = "{{ url_for('main.fortune_result', id=poem.id) }}";
+    </script>
+</body>
+</html>
